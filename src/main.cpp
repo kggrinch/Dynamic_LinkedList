@@ -6,13 +6,15 @@
 using namespace std;
 #define Test(name) RunTest(#name, name)
 
-void RunTest(string name, bool (*func)()) {
+void RunTest(string name, bool (*func)()) 
+{
     bool success = func();
     cout << name << ": " << (success ? "PASSED" : "FAILED") << endl;
 }
 
 template<class T>
-bool CompareValue(const T &correct, const T &value) {
+bool CompareValue(const T &correct, const T &value) 
+{
     if (correct == value) return true;
 
     cout << "Failed: expected " << correct << ", found " << value << endl;
@@ -21,7 +23,8 @@ bool CompareValue(const T &correct, const T &value) {
 }
 
 template<class T>
-bool CompareList(const string &correct, const int size, const List342<T> &list) {
+bool CompareList(const string &correct, const int size, const List342<T> &list) 
+{
     stringstream out{};
 
     out << list;
@@ -32,7 +35,8 @@ bool CompareList(const string &correct, const int size, const List342<T> &list) 
     return textCheck && sizeCheck;
 }
 
-bool TestSimple() {
+bool TestSimple() 
+{
     List342<int> list;
 
     int a = 7, b = 27, c = -4, d = 7, e = 7, f = 8;
@@ -55,7 +59,8 @@ bool TestSimple() {
     return true;
 }
 
-bool TestAdd() {
+bool TestAdd() 
+{
 
     List342<int>  my_list, my_list2;
     int l = 2;
@@ -116,7 +121,8 @@ bool TestAdd() {
     return true;
 }
 
-bool TestRemovePeek() {
+bool TestRemovePeek() 
+{
     List342<int> list;
 
     int a = 7, b = 27, c = -4, d = 7, e = 7, f = 8;
@@ -184,7 +190,8 @@ bool TestRemovePeek() {
     return true;
 }
 
-bool TestMerge() {
+bool TestMerge() 
+{
     List342<int> list;
 
     int a = 7, b = 27, c = -4, d = 7, e = 7, f = 8;
@@ -277,7 +284,8 @@ bool TestMerge() {
     return true;
 }
 
-bool TestEqualsAndSet() {
+bool TestEqualsAndSet() 
+{
     List342<int> list;
 
     int a = 7, b = 27, c = -4, d = 7, e = 7, f = 8;
@@ -326,7 +334,8 @@ bool TestEqualsAndSet() {
     return true;
 }
 
-bool TestBuildList() {
+bool TestBuildList() 
+{
     List342<int> list;
 
     list.BuildList("data.txt");
@@ -356,7 +365,6 @@ bool TestDeleteList()
 
 int main()
 {
-    
   Test(TestSimple);
   Test(TestAdd);
   Test(TestRemovePeek);
